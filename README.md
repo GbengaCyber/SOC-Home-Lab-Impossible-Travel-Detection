@@ -257,11 +257,11 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 ## MITRE ATT&CK
 
 | Tactic | Technique | ID | Observed |
-
-| Initial Access | Valid Accounts — Cloud Accounts | T1078.004 | Attacker used stolen valid credentials to authenticate 
-| Defense Evasion | Valid Accounts | T1078 | Commercial VPN and /24 IP rotation to evade detection 
-| Discovery | Cloud Service Discovery | T1526 | M365 Security portal access — active environment recon 
-| Persistence | External Remote Services | T1133 | Returned at 1:30 PM after containment — persistent access attempt 
+|---|---|---|---|
+| Initial Access | Valid Accounts — Cloud Accounts | T1078.004 | Attacker used stolen valid credentials to authenticate |
+| Defense Evasion | Valid Accounts | T1078 | Commercial VPN and /24 IP rotation to evade detection |
+| Discovery | Cloud Service Discovery | T1526 | M365 Security portal access — active environment recon |
+| Persistence | External Remote Services | T1133 | Returned at 1:30 PM after containment — persistent access attempt |
 
 ---
 
