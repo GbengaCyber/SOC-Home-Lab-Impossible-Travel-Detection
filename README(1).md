@@ -185,9 +185,6 @@ SigninLogs
           IPAddress, Location, AuthenticationDetails, OperationName
 | order by TimeGenerated desc
 ```
-
-<!-- Add screenshot: screenshots/04_signin_logs_full.png -->
-![SigninLogs Full](screenshots/04_signin_logs_full.png)
 *All successful logins for the affected account — home network IP and both suspicious VPN IPs visible*
 
 ### Sign-in Log Correlation — Both Suspicious IPs
@@ -201,8 +198,8 @@ SigninLogs
 | order by TimeGenerated desc
 ```
 
-<!-- Add screenshot: screenshots/07_signin_logs_both_ips.png -->
-![SigninLogs Both IPs](screenshots/07_signin_logs_both_ips.png)
+<img width="2198" height="956" alt="image" src="https://github.com/user-attachments/assets/4145e300-57d7-4aa7-958a-eeda1d8dcace" />
+
 *All apps accessed by both suspicious IPs — M365 Security portal access at 11:38 AM clearly visible*
 
 ---
@@ -239,13 +236,13 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 ### OSINT — IP Reputation
 
-<!-- Add screenshot: screenshots/08_abuseipdb_ip1.png -->
-![AbuseIPDB IP1](screenshots/08_abuseipdb_ip1.png)
-*AbuseIPDB — first suspicious IP (XXX.XXX.X.XX) — multiple prior reports, confirmed malicious*
+<img width="750" height="400" alt="image" src="https://github.com/user-attachments/assets/88cff965-1e48-4cf0-93c3-be78803937df" />
+
+*AbuseIPDB — first suspicious IP (145.223.7.19) — multiple prior reports, confirmed malicious*
 
 <!-- Add screenshot: screenshots/09_abuseipdb_ip2.png -->
 ![AbuseIPDB IP2](screenshots/09_abuseipdb_ip2.png)
-*AbuseIPDB — second suspicious IP (XXX.XXX.X.XX) — same hosting infrastructure, also flagged*
+*AbuseIPDB — second suspicious IP (145.223.7.29) — same hosting infrastructure, also flagged*
 
 ---
 
@@ -259,16 +256,16 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 | Blocked both IPs tenant-wide | Conditional Access — Named Locations | Prevents reuse against any other account in the tenant |
 | Assigned incident | Defender XDR | Ownership and audit trail |
 
-<!-- Add screenshot: screenshots/10_account_disabled.png -->
-![Account Disabled](screenshots/10_account_disabled.png)
+<img width="885" height="398" alt="image" src="https://github.com/user-attachments/assets/7daa3dda-ae61-4cc3-b131-dc9e1007edd3" />
+
 *Entra ID — account disabled and marked compromised in Identity Protection*
 
 <!-- Add screenshot: screenshots/11_sessions_revoked.png -->
 ![Sessions Revoked](screenshots/11_sessions_revoked.png)
 *All active sessions revoked — tokens invalidated across all apps*
 
-<!-- Add screenshot: screenshots/12_conditional_access_block.png -->
-![IP Block](screenshots/12_conditional_access_block.png)
+<img width="850" height="380" alt="image" src="https://github.com/user-attachments/assets/50d8848a-7dc7-4e72-aaa0-1a2aaf1687ba" />
+
 *Conditional Access Named Locations — both IPs blocked tenant-wide*
 
 ---
