@@ -223,27 +223,27 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 | Assigned incident to self | Defender XDR | Incident ownership and audit trail |
 
 
-*** Disable User Account In EntraID ***
+#### *** Disable User Account In EntraID ***
 <img width="558" height="248" alt="image" src="https://github.com/user-attachments/assets/5bd2ff29-de0e-417b-b2d2-983fcd50ed34" />
 
 
 ---
 
 
-*** Disable User In XDR ***
+#### *** Disable User In XDR ***
 
 <img width="791" height="217" alt="image" src="https://github.com/user-attachments/assets/979b604d-27c4-49d8-b3cf-91c990f2202d" />
 
 ---
 
-*** Blocked IPs accross Tenant ***
+### #*** Blocked IPs accross Tenant ***
 
 <img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/78848f0f-1350-4eb8-b10f-560deab3d7f9" />
 
 
 ---
 
-### Remediation
+### *** Remediation ***
 
 | Action | Detail |
 |---|---|
@@ -254,17 +254,22 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 | Account restored | Re-enabled after reset — user notified and briefed |
 | Active monitoring | Account monitored for 24 hours post-recovery |
 
+---
+
+#### Conditional Access Named Locations — both IPs blocked tenant-wide ###
+<img width="1000" height="530" alt="image" src="https://github.com/user-attachments/assets/2c090b14-ed91-40ff-9eb7-a5f39d9b8375" />
+
+
+
+---
+#### All active sessions revoked — tokens invalidated across all apps ###
 
 <img width="850" height="380" alt="image" src="https://github.com/user-attachments/assets/50d8848a-7dc7-4e72-aaa0-1a2aaf1687ba" />
 
 
-*All active sessions revoked — tokens invalidated across all apps*
 
----
 
-<img width="1000" height="530" alt="image" src="https://github.com/user-attachments/assets/2c090b14-ed91-40ff-9eb7-a5f39d9b8375" />
 
-*Conditional Access Named Locations — both IPs blocked tenant-wide*
 
 ---
 
