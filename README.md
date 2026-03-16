@@ -222,9 +222,14 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 | Blocked both IPs tenant-wide | Conditional Access — Named Locations | Prevents reuse against any other account in the tenant |
 | Assigned incident to self | Defender XDR | Incident ownership and audit trail |
 
+
 * Disable User Account*
 <img width="558" height="248" alt="image" src="https://github.com/user-attachments/assets/5bd2ff29-de0e-417b-b2d2-983fcd50ed34" />
+
+
 ---
+
+
 * Disable User In XDR *
 <img width="791" height="217" alt="image" src="https://github.com/user-attachments/assets/979b604d-27c4-49d8-b3cf-91c990f2202d" />
 
