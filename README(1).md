@@ -7,9 +7,9 @@
 
 ## Overview
 
-This lab documents a complete impossible travel investigation built and executed in a Microsoft Sentinel home lab environment. The scope covers everything a SOC analyst would touch on this type of alert — writing the detection rule, simulating the attack, triaging the incident, correlating logs, performing OSINT on suspicious IPs, containing the account, and closing the incident with full documentation.
+This lab documents a complete impossible travel investigation built and executed in a Microsoft Sentinel home lab environment. The scope covers everything a SOC analyst would touch on this type of alert, writing the detection rule, simulating the attack, triaging the incident, correlating logs, performing OSINT on suspicious IPs, containing the account, and closing the incident with full documentation.
 
-The goal wasn't just to fire an alert. It was to work through the full analyst workflow and understand the *why* behind each step — not just the mechanics.
+The goal wasn't just to fire an alert. It was to work through the full analyst workflow and understand the scope behind each step, not just the mechanics.
 
 ---
 
@@ -31,7 +31,7 @@ The goal wasn't just to fire an alert. It was to work through the full analyst w
 
 Impossible travel fires when the same account logs in from two locations within a timeframe that makes physical travel between them impossible. It is one of the most reliable early indicators of account compromise — the attacker is authenticating from their own infrastructure while the legitimate user is somewhere else.
 
-Experienced attackers sometimes use VPN exit nodes close to their target's location to reduce the geographic anomaly. This is why the detection rule also monitors **VPN flips** — a sudden change in the anonymized IP flag between two consecutive logins is a signal worth investigating even if the country appears the same.
+Experienced attackers sometimes use VPN exit nodes close to their target's location to reduce the geographic anomaly. This is why the detection rule also monitors **VPN flips**  a sudden change in the anonymized IP flag between two consecutive logins is a signal worth investigating even if the country appears the same.
 
 ---
 
@@ -39,8 +39,8 @@ Experienced attackers sometimes use VPN exit nodes close to their target's locat
 
 ### Analytics Rule Configuration
 
-| Setting | Value |
-|---|---|
+. ** Setting | Value 
+
 | Rule Name | Impossible Travel Detection |
 | Severity | Medium |
 | Run every | 1 hour (5 mins during lab testing) |
@@ -66,7 +66,6 @@ Experienced attackers sometimes use VPN exit nodes close to their target's locat
 
 ```kql
 let TravelWindow = 4h;
-
 SigninLogs
 | where TimeGenerated >= ago(TravelWindow)
 | where ResultType == 0
@@ -100,7 +99,7 @@ SigninLogs
 
 **Logic breakdown:**
 
-- Component - Purpose 
+. Component - Purpose 
 
 | `ResultType == 0` | Successful logins only — impossible travel is only meaningful if the attacker got in |
 | `serialize` | Locks row order so `prev()` reliably references the previous login per user |
@@ -110,15 +109,14 @@ SigninLogs
 > *In a production environment this would be extended with Haversine distance calculation, weighted risk scoring, and ASN-based VPN enrichment. The query above covers the core detection logic. See Lab Notes at the bottom for full details.*
 
 ---
-
 ## Simulating the Attack
 
-| Step | Action |
+ Step | Action 
 
-| 1 | Logged into test account from home network — established clean baseline login |
-| 2 | Connected Surfshark VPN (WireGuard) to a US exit node |
-| 3 | Logged into the same account again through the VPN |
-| 4 | 11 minutes between the two logins — impossible travel window triggered |
+.  Logged into test account from home network — established clean baseline login |
+.  Connected Surfshark VPN (WireGuard) to a US exit node |
+.  Logged into the same account again through the VPN |
+.  11 minutes between the two logins — impossible travel window triggered |
 
 ### Screenshot — VPN Connected
 
@@ -184,7 +182,7 @@ SigninLogs
 
 | 11:24 AM | My Signins | [Home IP — Masked] | Home | Legitimate login — clean residential IP |
 | 11:35 AM | My Apps | 145.223.7.19 | US | First VPN login — 11 mins after home login |
-| 11:38 AM | M365 Security & Compliance | XXX.XXX.X.XX | US | Security portal — **reconnaissance behavior** |
+| 11:38 AM | M365 Security & Compliance | 145.223.7.19 | US | Security portal — **reconnaissance behavior** |
 | 11:42 AM | My Apps | 145.223.7.29 | US | Second IP surfaces — same /24 subnet, IP rotation |
 | 11:43 AM | Azure Portal | 145.223.7.29 | US | Pivot to Azure admin portal |
 | 11:43 AM | Azure Portal | 145.223.7.19 | US | Both IPs active concurrently — concurrent sessions |
@@ -214,21 +212,17 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 *AbuseIPDB — first suspicious IP (145.223.7.19) — multiple prior reports, confirmed malicious*
 
-<!-- Add screenshot: screenshots/09_abuseipdb_ip2.png -->
-![AbuseIPDB IP2](screenshots/09_abuseipdb_ip2.png)
-*AbuseIPDB — second suspicious IP (145.223.7.29) — same hosting infrastructure, also flagged*
-
 ---
 
 ## Containment
 
 | Action | Tool | Purpose |
 
-| Disabled account | Entra ID | Cut off live access immediately |
-| Marked as compromised | Identity Protection | Activates risk-based policies and mandatory remediation |
-| Revoked all sessions | Entra ID | Kills all active tokens — forces full re-authentication |
-| Blocked both IPs tenant-wide | Conditional Access — Named Locations | Prevents reuse against any other account in the tenant |
-| Assigned incident | Defender XDR | Ownership and audit trail |
+. Disabled account | Entra ID | Cut off live access immediately |
+. Marked as compromised | Identity Protection | Activates risk-based policies and mandatory remediation |
+. Revoked all sessions | Entra ID | Kills all active tokens — forces full re-authentication |
+. Blocked both IPs tenant-wide | Conditional Access — Named Locations | Prevents reuse against any other account in the tenant |
+. Assigned incident | Defender XDR | Ownership and audit trail |
 
 <img width="885" height="398" alt="image" src="https://github.com/user-attachments/assets/7daa3dda-ae61-4cc3-b131-dc9e1007edd3" />
 
@@ -265,21 +259,19 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 | Tactic | Technique | ID | Observed |
 
-| Initial Access | Valid Accounts — Cloud Accounts | T1078.004 | Attacker used stolen valid credentials to authenticate |
-| Defense Evasion | Valid Accounts | T1078 | Commercial VPN and /24 IP rotation to evade detection |
-| Discovery | Cloud Service Discovery | T1526 | M365 Security portal access — active environment recon |
-| Persistence | External Remote Services | T1133 | Returned at 1:30 PM after containment — persistent access attempt |
+.  Initial Access | Valid Accounts — Cloud Accounts | T1078.004 | Attacker used stolen valid credentials to authenticate |
+.  Defense Evasion | Valid Accounts | T1078 | Commercial VPN and /24 IP rotation to evade detection |
+.  Discovery | Cloud Service Discovery | T1526 | M365 Security portal access — active environment recon |
+. Persistence | External Remote Services | T1133 | Returned at 1:30 PM after containment — persistent access attempt |
 
 ---
 
 ## Incident Closure
 
-| Field | Detail |
-
-| Classification | **True Positive** |
-| Root cause | External credential compromise |
-| Scope | Single account — no lateral movement, no exfiltration |
-| Summary | Stolen credentials used to authenticate from two VPN IPs in the same /24 subnet. Attacker accessed MyApps, Azure Portal, and M365 Security portal. Returned after initial containment. Full credential reset, MFA re-enrollment, tenant-wide IP block applied. Account restored under monitoring. |
+. Classification | **True Positive** |
+. Root cause | External credential compromise |
+. Scope | Single account — no lateral movement, no exfiltration |
+. Summary | Stolen credentials used to authenticate from two VPN IPs in the same /24 subnet. Attacker accessed MyApps, Azure Portal, and M365 Security portal. Returned after initial containment. Full credential reset, MFA re-enrollment, tenant-wide IP block applied. Account restored under monitoring. |
 
 ---
 
