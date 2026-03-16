@@ -212,8 +212,26 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 ---
 
-## Remediation
+### Containment & Remediation
+### Containment
 
+| Action | Tool | Purpose |
+|---|---|---|
+| Disabled account | Entra ID | Cut off live access immediately |
+| Marked as compromised | Identity Protection | Activates risk-based policies and mandatory remediation |
+| Revoked all sessions | Entra ID | Kills all active tokens — forces full re-authentication |
+| Blocked both IPs tenant-wide | Conditional Access — Named Locations | Prevents reuse against any other account in the tenant |
+| Assigned incident to self | Defender XDR | Incident ownership and audit trail |
+
+
+<img width="885" height="398" alt="image" src="https://github.com/user-attachments/assets/7daa3dda-ae61-4cc3-b131-dc9e1007edd3" />
+
+---
+
+### Remediation
+
+| Action | Detail |
+|---|---|
 | Password reset | Full credential reset — previous password invalidated immediately |
 | MFA reset | All methods cleared, fresh re-enrollment required — removes any attacker-registered authenticator app |
 | Conditional Access | MFA enforced as baseline requirement for all cloud app sign-ins |
@@ -221,20 +239,14 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 | Account restored | Re-enabled after reset — user notified and briefed |
 | Active monitoring | Account monitored for 24 hours post-recovery |
 
+<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/78848f0f-1350-4eb8-b10f-560deab3d7f9" />
 
-<img width="885" height="398" alt="image" src="https://github.com/user-attachments/assets/7daa3dda-ae61-4cc3-b131-dc9e1007edd3" />
-
-
-
----
+<img width="850" height="380" alt="image" src="https://github.com/user-attachments/assets/50d8848a-7dc7-4e72-aaa0-1a2aaf1687ba" />
 
 <img width="1000" height="530" alt="image" src="https://github.com/user-attachments/assets/2c090b14-ed91-40ff-9eb7-a5f39d9b8375" />
 
-*Entra ID — account disabled and marked compromised in Identity Protection*
-
 ---
 
-<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/78848f0f-1350-4eb8-b10f-560deab3d7f9" />
 
 *XDR — Blocked IPs accross Tenant*
 
@@ -243,7 +255,6 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 ---
 
-<img width="850" height="380" alt="image" src="https://github.com/user-attachments/assets/50d8848a-7dc7-4e72-aaa0-1a2aaf1687ba" />
 
 *Conditional Access Named Locations — both IPs blocked tenant-wide*
 
