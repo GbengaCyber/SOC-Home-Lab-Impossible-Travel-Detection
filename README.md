@@ -214,14 +214,12 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 ## Containment
 
-| Action | Tool | Purpose |
-
-- Disabled account | Entra ID | Cut off live access immediately |
-- Marked as compromised | Identity Protection | Activates risk-based policies and mandatory remediation |
--  Revoked all sessions | Entra ID | Kills all active tokens — forces full re-authentication |
-- locked both IPs tenant-wide | Conditional Access — Named Locations | Prevents reuse against any other account in the tenant |
--  ssigned incident | Defender XDR | Ownership and audit trail |
-
+| Password reset | Full credential reset — previous password invalidated immediately |
+| MFA reset | All methods cleared, fresh re-enrollment required — removes any attacker-registered authenticator app |
+| Conditional Access | MFA enforced as baseline requirement for all cloud app sign-ins |
+| Tenant-wide IP block | Both IPs permanently blocked across all users |
+| Account restored | Re-enabled after reset — user notified and briefed |
+| Active monitoring | Account monitored for 24 hours post-recovery |
 <img width="885" height="398" alt="image" src="https://github.com/user-attachments/assets/7daa3dda-ae61-4cc3-b131-dc9e1007edd3" />
 
 *Entra ID — account disabled and marked compromised in Identity Protection*
