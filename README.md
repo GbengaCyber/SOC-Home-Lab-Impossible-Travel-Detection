@@ -224,11 +224,13 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 <img width="885" height="398" alt="image" src="https://github.com/user-attachments/assets/7daa3dda-ae61-4cc3-b131-dc9e1007edd3" />
 
-*Entra ID — account disabled and marked compromised in Identity Protection*
+
 
 ---
+
 <img width="1000" height="530" alt="image" src="https://github.com/user-attachments/assets/2c090b14-ed91-40ff-9eb7-a5f39d9b8375" />
 
+*Entra ID — account disabled and marked compromised in Identity Protection*
 
 ---
 
