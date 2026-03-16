@@ -151,7 +151,9 @@ SigninLogs
 
 ### Screenshot — VPN Connected
 
-<img width="1000" height="500 alt="image" src="https://github.com/user-attachments/assets/6871acf6-24b5-47bb-8ccb-da39a9f4003f" />
+
+
+<img width="985" height="510" alt="image" src="https://github.com/user-attachments/assets/6871acf6-24b5-47bb-8ccb-da39a9f4003f" />
 
 *Surfshark VPN connected to US exit node — IP masked, WireGuard protocol, connection active*
 
