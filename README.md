@@ -6,7 +6,6 @@
 
 ## Overview
 
-This lab documents a complete impossible travel investigation built and executed in a Microsoft Sentinel home lab environment. The scope covers everything a SOC analyst would touch on this type of alert, writing the detection rule, simulating the attack, triaging the incident, correlating logs, performing OSINT on suspicious IPs, containing the account, and closing the incident with full documentation.
 
 The goal wasn't just to fire an alert. It was to work through the full analyst workflow and understand the scope behind each step, not just the mechanics.
 
@@ -181,7 +180,7 @@ SigninLogs
 | 11:24 AM | My Signins | [Home IP — Masked] | Home | Legitimate login — clean residential IP |
 | 11:35 AM | My Apps | 145.223.7.19 | US | First VPN login — 11 mins after home login |
 | 11:38 AM | M365 Security & Compliance | 145.223.7.19 | US | Security portal access — **reconnaissance behavior** |
-| 11:42 AM | My Apps | X145.223.7.29| US | Second IP surfaces — same /24 subnet, IP rotation |
+| 11:42 AM | My Apps | 145.223.7.29| US | Second IP surfaces — same /24 subnet, IP rotation |
 | 11:43 AM | Azure Portal | 145.223.7.29 | US | Pivot to Azure admin portal |
 | 11:43 AM | Azure Portal | 145.223.7.19  | US | Both IPs active concurrently — concurrent sessions |
 | 1:30 PM | Azure Portal | 145.223.7.19 | US | Returned after containment — **persistence attempt** |
