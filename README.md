@@ -155,7 +155,7 @@ SigninLogs
 ```
 <img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/2332c72d-2ed8-4b36-91d0-ff879e71f55d" />
 
-*All successful logins for the affected account — home network IP and both suspicious VPN IPs visible*
+#### All successful logins for the affected account — home network IP and both suspicious VPN IPs visible*
 
 ### Sign-in Log Correlation — Both Suspicious IPs
 
@@ -222,7 +222,7 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 | Blocked both IPs tenant-wide | Conditional Access — Named Locations | Prevents reuse against any other account in the tenant |
 | Assigned incident to self | Defender XDR | Incident ownership and audit trail |
 
-
+---
 #### *** Disable User Account In EntraID ***
 <img width="558" height="248" alt="image" src="https://github.com/user-attachments/assets/5bd2ff29-de0e-417b-b2d2-983fcd50ed34" />
 
