@@ -95,11 +95,11 @@ SigninLogs
 | order by UserPrincipalName asc, TimeGenerated asc
 ```
 
-**Logic breakdown:**
+### Logic Breakdown
 
-Component - Purpose 
-
-| `ResultType == 0` | Successful logins only — impossible travel is only meaningful if the attacker got in |
+| Component | Purpose |
+|---|---|
+| `ResultType == 0` | Successful logins only — impossible travel only matters if the attacker got in |
 | `serialize` | Locks row order so `prev()` reliably references the previous login per user |
 | `prev()` | Compares each login directly against the previous one from the same account |
 | `IsVPN != PrevIsVPN` | Catches VPN flip pattern — attacker dropping VPN after recon to blend in with local traffic |
