@@ -241,13 +241,14 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 ## Remediation
 
 | Action | Detail |
+|---|---|
+| Password reset | Full credential reset — previous password invalidated immediately |
+| MFA reset | All methods cleared, fresh re-enrollment required — removes any attacker-registered authenticator app |
+| Conditional Access | MFA enforced as baseline requirement for all cloud app sign-ins |
+| Tenant-wide IP block | Both IPs permanently blocked across all users |
+| Account restored | Re-enabled after reset — user notified and briefed |
+| Active monitoring | Account monitored for 24 hours post-recovery |
 
-| Password reset | Full credential reset — previous password invalidated immediately 
-| MFA reset | All methods cleared, fresh re-enrollment required — removes any attacker-registered authenticator app 
-| Conditional Access | MFA enforced as baseline requirement for all cloud app sign-ins 
-| Tenant-wide IP block | Both IPs permanently blocked across all users 
-| Account restored | Re-enabled after reset — user notified and briefed 
-| Active monitoring | Account monitored for 24 hours post-recovery 
 
 <img width="1000" height="530" alt="image" src="https://github.com/user-attachments/assets/2c090b14-ed91-40ff-9eb7-a5f39d9b8375" />
 
