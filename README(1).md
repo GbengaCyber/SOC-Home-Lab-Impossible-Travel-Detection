@@ -153,7 +153,7 @@ SigninLogs
 
 
 
-<img width="985" height="510" alt="image" src="https://github.com/user-attachments/assets/6871acf6-24b5-47bb-8ccb-da39a9f4003f" />
+<img width="893" height="750" alt="image" src="https://github.com/user-attachments/assets/1404d238-c66b-4e21-b24c-e8c77e6dd09e" />
 
 *Surfshark VPN connected to US exit node — IP masked, WireGuard protocol, connection active*
 
