@@ -212,7 +212,7 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 ---
 
-### Containment
+### *** Containment ***
 
 | Action | Tool | Purpose |
 |---|---|---|
@@ -222,7 +222,15 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 | Blocked both IPs tenant-wide | Conditional Access — Named Locations | Prevents reuse against any other account in the tenant |
 | Assigned incident to self | Defender XDR | Incident ownership and audit trail |
 
+*XDR — Disable User Account*
 <img width="558" height="248" alt="image" src="https://github.com/user-attachments/assets/5bd2ff29-de0e-417b-b2d2-983fcd50ed34" />
+
+
+
+*XDR — Blocked IPs accross Tenant*
+
+<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/78848f0f-1350-4eb8-b10f-560deab3d7f9" />
+
 
 ---
 
@@ -237,7 +245,6 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 | Account restored | Re-enabled after reset — user notified and briefed |
 | Active monitoring | Account monitored for 24 hours post-recovery |
 
-<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/78848f0f-1350-4eb8-b10f-560deab3d7f9" />
 
 <img width="850" height="380" alt="image" src="https://github.com/user-attachments/assets/50d8848a-7dc7-4e72-aaa0-1a2aaf1687ba" />
 
@@ -246,7 +253,7 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 ---
 
 
-*XDR — Blocked IPs accross Tenant*
+
 
 
 *All active sessions revoked — tokens invalidated across all apps*
