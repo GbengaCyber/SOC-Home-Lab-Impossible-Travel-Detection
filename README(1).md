@@ -55,10 +55,10 @@ Experienced attackers sometimes use VPN exit nodes close to their target's locat
 
 <img width="900" height="400" alt="image" src="https://github.com/user-attachments/assets/3f92237c-aa19-4e69-946b-2998e7f88f0e" />
 
+---
+### Schedule & Entity Mapping
 
-### Screenshot — Schedule & Entity Mapping
-
-<img width="985" height="510" alt="image" src="https://github.com/user-attachments/assets/3e860f9a-d337-43c8-a197-c68beadc7a61" />
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/71027c2f-9582-4d90-aed7-f3fa4d46afe0" />
 
 ---
 
@@ -100,8 +100,8 @@ SigninLogs
 
 **Logic breakdown:**
 
-| Component | Purpose |
-|---|---|
+- Component - Purpose 
+
 | `ResultType == 0` | Successful logins only — impossible travel is only meaningful if the attacker got in |
 | `serialize` | Locks row order so `prev()` reliably references the previous login per user |
 | `prev()` | Compares each login directly against the previous one from the same account |
@@ -114,14 +114,13 @@ SigninLogs
 ## Simulating the Attack
 
 | Step | Action |
-|---|---|
+
 | 1 | Logged into test account from home network — established clean baseline login |
 | 2 | Connected Surfshark VPN (WireGuard) to a US exit node |
 | 3 | Logged into the same account again through the VPN |
 | 4 | 11 minutes between the two logins — impossible travel window triggered |
 
 ### Screenshot — VPN Connected
-
 
 
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/1404d238-c66b-4e21-b24c-e8c77e6dd09e" />
@@ -132,15 +131,15 @@ SigninLogs
 
 ## The Alert
 
-### Screenshot — Incidents Queue
+### Incidents Queue
 
-<!-- Add screenshot: screenshots/05_incidents_queue.png -->
-![Incidents Queue](screenshots/05_incidents_queue.png)
+<img width="700" height="256" alt="image" src="https://github.com/user-attachments/assets/444057d5-a2d0-4a70-b172-0a7bf3054ef0" />
+
 *Defender XDR incidents list — Impossible Travel Detection fired with Medium severity and Critical Asset tag*
 
-### Screenshot — Incident 35 Full Detail
+### Incident 35 Full Detail
 
-<img width="1700" height="600" alt="image" src="https://github.com/user-attachments/assets/9461d80f-2c74-4757-b73f-8d9a81cfcb5a" />
+<img width="1000" height="400" alt="image" src="https://github.com/user-attachments/assets/9461d80f-2c74-4757-b73f-8d9a81cfcb5a" />
 
 *Attack story showing 2 active alerts, activity window 11:35–11:46 AM, and incident graph with user connected to 2 IPs*
 
@@ -158,6 +157,8 @@ SigninLogs
           IPAddress, Location, AuthenticationDetails, OperationName
 | order by TimeGenerated desc
 ```
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/2332c72d-2ed8-4b36-91d0-ff879e71f55d" />
+
 *All successful logins for the affected account — home network IP and both suspicious VPN IPs visible*
 
 ### Sign-in Log Correlation — Both Suspicious IPs
@@ -180,7 +181,7 @@ SigninLogs
 ### Attack Timeline
 
 | Time | App | IP | Location | Significance |
-|---|---|---|---|---|
+
 | 11:24 AM | My Signins | [Home IP — Masked] | Home | Legitimate login — clean residential IP |
 | 11:35 AM | My Apps | 145.223.7.19 | US | First VPN login — 11 mins after home login |
 | 11:38 AM | M365 Security & Compliance | XXX.XXX.X.XX | US | Security portal — **reconnaissance behavior** |
@@ -222,7 +223,7 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 ## Containment
 
 | Action | Tool | Purpose |
-|---|---|---|
+
 | Disabled account | Entra ID | Cut off live access immediately |
 | Marked as compromised | Identity Protection | Activates risk-based policies and mandatory remediation |
 | Revoked all sessions | Entra ID | Kills all active tokens — forces full re-authentication |
@@ -233,8 +234,12 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 *Entra ID — account disabled and marked compromised in Identity Protection*
 
-<!-- Add screenshot: screenshots/11_sessions_revoked.png -->
-![Sessions Revoked](screenshots/11_sessions_revoked.png)
+
+<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/78848f0f-1350-4eb8-b10f-560deab3d7f9" />
+
+*XDR — Blocked IPs accross Tenant*
+
+
 *All active sessions revoked — tokens invalidated across all apps*
 
 <img width="850" height="380" alt="image" src="https://github.com/user-attachments/assets/50d8848a-7dc7-4e72-aaa0-1a2aaf1687ba" />
@@ -246,28 +251,20 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 ## Remediation
 
 | Action | Detail |
-|---|---|
-| Password reset | Full credential reset — previous password invalidated immediately |
-| MFA reset | All methods cleared, fresh re-enrollment required — removes any attacker-registered authenticator app |
-| Conditional Access | MFA enforced as baseline requirement for all cloud app sign-ins |
-| Tenant-wide IP block | Both IPs permanently blocked across all users |
-| Account restored | Re-enabled after reset — user notified and briefed |
-| Active monitoring | Account monitored for 24 hours post-recovery |
 
-<!-- Add screenshot: screenshots/13_password_mfa_reset.png -->
-![Password MFA Reset](screenshots/13_password_mfa_reset.png)
-*Password reset and MFA methods cleared in Entra ID*
-
-<!-- Add screenshot: screenshots/14_incident_closed.png -->
-![Incident Closed](screenshots/14_incident_closed.png)
-*Incident closed as True Positive in Defender XDR with analyst notes*
+. Password reset | Full credential reset — previous password invalidated immediately |
+. MFA reset | All methods cleared, fresh re-enrollment required — removes any attacker-registered authenticator app |
+. Conditional Access | MFA enforced as baseline requirement for all cloud app sign-ins |
+. Tenant-wide IP block | Both IPs permanently blocked across all users |
+. Account restored | Re-enabled after reset — user notified and briefed |
+. Active monitoring | Account monitored for 24 hours post-recovery |
 
 ---
 
 ## MITRE ATT&CK
 
 | Tactic | Technique | ID | Observed |
-|---|---|---|---|
+
 | Initial Access | Valid Accounts — Cloud Accounts | T1078.004 | Attacker used stolen valid credentials to authenticate |
 | Defense Evasion | Valid Accounts | T1078 | Commercial VPN and /24 IP rotation to evade detection |
 | Discovery | Cloud Service Discovery | T1526 | M365 Security portal access — active environment recon |
@@ -278,7 +275,7 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 ## Incident Closure
 
 | Field | Detail |
-|---|---|
+
 | Classification | **True Positive** |
 | Root cause | External credential compromise |
 | Scope | Single account — no lateral movement, no exfiltration |
@@ -303,9 +300,9 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 ## Lab Notes
 
-This lab was built in a Microsoft Sentinel home lab using a dedicated test account. The impossible travel was simulated by logging in from a home network to establish a clean baseline, then connecting through a commercial VPN (Surfshark, WireGuard) to a US exit node and logging in again from the same account — generating real SigninLogs and a real Sentinel incident.
+This lab was built in a Microsoft Sentinel home lab using a dedicated account. The impossible travel was simulated by logging in from a home network to establish a clean baseline, then connecting through a commercial VPN (Surfshark, WireGuard) to a US exit node and logging in again from the same account — generating real SigninLogs and a real Sentinel incident.
 
-The KQL query is intentionally kept at a foundational level. I focused on understanding the core detection logic deeply — `serialize`, `prev()`, consecutive login comparison — rather than using a complex query I couldn't fully explain. The production-ready extensions I would add:
+The KQL query is intentionally kept at a foundational level. I focused on understanding the core detection logic deeply — `serialize`, `prev()`, consecutive login comparison. The production-ready extensions I would add:
 
 - Haversine distance scoring between GPS coordinates
 - Weighted multi-signal risk scoring
@@ -313,12 +310,4 @@ The KQL query is intentionally kept at a foundational level. I focused on unders
 - Automated Logic Apps response playbook
 
 ---
-
-## Full Investigation Report
-
-Complete write-up with full timeline, log evidence, observations, containment steps, and remediation:  
-[`investigation/Impossible_Travel_Report.docx`](investigation/Impossible_Travel_Report.docx)
-
----
-
 *Built as part of an ongoing SOC home lab series focused on detection engineering, incident response, and cloud security operations.*
