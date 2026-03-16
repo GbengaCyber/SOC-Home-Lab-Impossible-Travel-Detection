@@ -82,13 +82,12 @@ Experienced attackers sometimes use VPN exit nodes close to their target's locat
 
 ### Screenshot — General Tab
 
-<!-- Add screenshot: screenshots/01_analytics_rule_general.png -->
-![Analytics Rule General Tab](screenshots/01_analytics_rule_general.png)
+<img width="900" height="400" alt="image" src="https://github.com/user-attachments/assets/3f92237c-aa19-4e69-946b-2998e7f88f0e" />
+
 
 ### Screenshot — Schedule & Entity Mapping
 
-<!-- Add screenshot: screenshots/02_analytics_rule_settings.png -->
-![Analytics Rule Settings](screenshots/02_analytics_rule_settings.png)
+<img width="985" height="510" alt="image" src="https://github.com/user-attachments/assets/3e860f9a-d337-43c8-a197-c68beadc7a61" />
 
 ---
 
@@ -152,8 +151,8 @@ SigninLogs
 
 ### Screenshot — VPN Connected
 
-<!-- Add screenshot: screenshots/03_vpn_connected.png -->
-![VPN Connected](screenshots/03_vpn_connected.png)
+<img width="1000" height="500 alt="image" src="https://github.com/user-attachments/assets/6871acf6-24b5-47bb-8ccb-da39a9f4003f" />
+
 *Surfshark VPN connected to US exit node — IP masked, WireGuard protocol, connection active*
 
 ---
@@ -168,8 +167,8 @@ SigninLogs
 
 ### Screenshot — Incident 35 Full Detail
 
-<!-- Add screenshot: screenshots/06_incident_35_detail.png -->
-![Incident Detail](screenshots/06_incident_35_detail.png)
+<img width="1200" height="800" alt="image" src="https://github.com/user-attachments/assets/9461d80f-2c74-4757-b73f-8d9a81cfcb5a" />
+
 *Attack story showing 2 active alerts, activity window 11:35–11:46 AM, and incident graph with user connected to 2 IPs*
 
 ---
