@@ -228,7 +228,7 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 *Entra ID — account disabled and marked compromised in Identity Protection*
 
-
+---
 <img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/78848f0f-1350-4eb8-b10f-560deab3d7f9" />
 
 *XDR — Blocked IPs accross Tenant*
