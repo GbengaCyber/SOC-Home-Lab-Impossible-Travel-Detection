@@ -27,35 +27,6 @@ The goal wasn't just to fire an alert. It was to work through the full analyst w
 
 ---
 
-## Repo Structure
-
-```
-soc-lab-impossible-travel/
-│
-├── README.md                          ← this file
-├── detection/
-│   └── impossible_travel.kql          ← the KQL analytics rule
-├── investigation/
-│   └── Impossible_Travel_Report.docx  ← full investigation writeup
-└── screenshots/
-    ├── 01_analytics_rule_general.png
-    ├── 02_analytics_rule_settings.png
-    ├── 03_vpn_connected.png
-    ├── 04_signin_logs_full.png
-    ├── 05_incidents_queue.png
-    ├── 06_incident_35_detail.png
-    ├── 07_signin_logs_both_ips.png
-    ├── 08_abuseipdb_ip1.png
-    ├── 09_abuseipdb_ip2.png
-    ├── 10_account_disabled.png
-    ├── 11_sessions_revoked.png
-    ├── 12_conditional_access_block.png
-    ├── 13_password_mfa_reset.png
-    └── 14_incident_closed.png
-```
-
----
-
 ## What is Impossible Travel?
 
 Impossible travel fires when the same account logs in from two locations within a timeframe that makes physical travel between them impossible. It is one of the most reliable early indicators of account compromise — the attacker is authenticating from their own infrastructure while the legitimate user is somewhere else.
@@ -153,7 +124,7 @@ SigninLogs
 
 
 
-<img width="893" height="750" alt="image" src="https://github.com/user-attachments/assets/1404d238-c66b-4e21-b24c-e8c77e6dd09e" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/1404d238-c66b-4e21-b24c-e8c77e6dd09e" />
 
 *Surfshark VPN connected to US exit node — IP masked, WireGuard protocol, connection active*
 
@@ -169,7 +140,7 @@ SigninLogs
 
 ### Screenshot — Incident 35 Full Detail
 
-<img width="1200" height="800" alt="image" src="https://github.com/user-attachments/assets/9461d80f-2c74-4757-b73f-8d9a81cfcb5a" />
+<img width="1700" height="600" alt="image" src="https://github.com/user-attachments/assets/9461d80f-2c74-4757-b73f-8d9a81cfcb5a" />
 
 *Attack story showing 2 active alerts, activity window 11:35–11:46 AM, and incident graph with user connected to 2 IPs*
 
@@ -200,7 +171,7 @@ SigninLogs
 | order by TimeGenerated desc
 ```
 
-<img width="2198" height="956" alt="image" src="https://github.com/user-attachments/assets/4145e300-57d7-4aa7-958a-eeda1d8dcace" />
+<img width="1000" height="800" alt="image" src="https://github.com/user-attachments/assets/4145e300-57d7-4aa7-958a-eeda1d8dcace" />
 
 *All apps accessed by both suspicious IPs — M365 Security portal access at 11:38 AM clearly visible*
 
@@ -211,12 +182,12 @@ SigninLogs
 | Time | App | IP | Location | Significance |
 |---|---|---|---|---|
 | 11:24 AM | My Signins | [Home IP — Masked] | Home | Legitimate login — clean residential IP |
-| 11:35 AM | My Apps | XXX.XXX.X.XX | US | First VPN login — 11 mins after home login |
+| 11:35 AM | My Apps | 145.223.7.19 | US | First VPN login — 11 mins after home login |
 | 11:38 AM | M365 Security & Compliance | XXX.XXX.X.XX | US | Security portal — **reconnaissance behavior** |
-| 11:42 AM | My Apps | XXX.XXX.X.XX | US | Second IP surfaces — same /24 subnet, IP rotation |
-| 11:43 AM | Azure Portal | XXX.XXX.X.XX | US | Pivot to Azure admin portal |
-| 11:43 AM | Azure Portal | XXX.XXX.X.XX | US | Both IPs active concurrently — concurrent sessions |
-| 1:30 PM | Azure Portal | XXX.XXX.X.XX | US | **Returned after containment — persistence attempt** |
+| 11:42 AM | My Apps | 145.223.7.29 | US | Second IP surfaces — same /24 subnet, IP rotation |
+| 11:43 AM | Azure Portal | 145.223.7.29 | US | Pivot to Azure admin portal |
+| 11:43 AM | Azure Portal | 145.223.7.19 | US | Both IPs active concurrently — concurrent sessions |
+| 1:30 PM | Azure Portal | 145.223.7.19 | US | **Returned after containment — persistence attempt** |
 
 ---
 
