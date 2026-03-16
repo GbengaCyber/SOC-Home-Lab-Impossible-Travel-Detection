@@ -3,7 +3,6 @@
 > **Microsoft Sentinel · Entra ID · Defender XDR · KQL · MITRE ATT&CK**  
 > Full detection engineering, incident investigation, containment, and remediation — documented end to end.
 
----
 
 ## Overview
 
@@ -179,13 +178,13 @@ SigninLogs
 
 | Time | App | IP | Location | Significance |
 
-| 11:24 AM | My Signins | [Home IP — Masked] | Home | Legitimate login — clean residential IP |
-| 11:35 AM | My Apps | 145.223.7.19 | US | First VPN login — 11 mins after home login |
-| 11:38 AM | M365 Security & Compliance | 145.223.7.19 | US | Security portal — **reconnaissance behavior** |
-| 11:42 AM | My Apps | 145.223.7.29 | US | Second IP surfaces — same /24 subnet, IP rotation |
-| 11:43 AM | Azure Portal | 145.223.7.29 | US | Pivot to Azure admin portal |
-| 11:43 AM | Azure Portal | 145.223.7.19 | US | Both IPs active concurrently — concurrent sessions |
-| 1:30 PM | Azure Portal | 145.223.7.19 | US | **Returned after containment — persistence attempt** |
+. 11:24 AM - My Signins - [Home IP — Masked] - Home - Legitimate login — clean residential IP 
+. 11:35 AM - My Apps - 145.223.7.19 - US - First VPN login — 11 mins after home login 
+. 11:38 AM - M365 Security & Compliance - 145.223.7.19 - US - Security portal — **reconnaissance behavior** |
+. 11:42 AM - My Apps - 145.223.7.29 - US - Second IP surfaces — same /24 subnet, IP rotation 
+. 11:43 AM - Azure Portal - 145.223.7.29 - US - Pivot to Azure admin portal 
+. 11:43 AM - Azure Portal - 145.223.7.19 - US - Both IPs active concurrently — concurrent sessions 
+. 1:30 PM - Azure Portal - 145.223.7.19 - US - **Returned after containment — persistence attempt** 
 
 ---
 
