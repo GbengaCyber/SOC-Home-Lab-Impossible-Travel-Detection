@@ -226,8 +226,11 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 *Entra ID — account disabled and marked compromised in Identity Protection*
 
+---
 <img width="1000" height="530" alt="image" src="https://github.com/user-attachments/assets/2c090b14-ed91-40ff-9eb7-a5f39d9b8375" />
 
+
+---
 
 <img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/78848f0f-1350-4eb8-b10f-560deab3d7f9" />
 
@@ -235,6 +238,8 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 
 *All active sessions revoked — tokens invalidated across all apps*
+
+---
 
 <img width="850" height="380" alt="image" src="https://github.com/user-attachments/assets/50d8848a-7dc7-4e72-aaa0-1a2aaf1687ba" />
 
