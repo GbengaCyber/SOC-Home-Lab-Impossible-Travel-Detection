@@ -39,7 +39,7 @@ Experienced attackers sometimes use VPN exit nodes close to their target's locat
 
 ### Analytics Rule Configuration
 
-. ** Setting | Value 
+** Setting | Value 
 
 | Rule Name | Impossible Travel Detection |
 | Severity | Medium |
@@ -51,7 +51,7 @@ Experienced attackers sometimes use VPN exit nodes close to their target's locat
 | MITRE Tactics | Initial Access, Defense Evasion |
 | MITRE Techniques | T1078 — Valid Accounts, T1133 — External Remote Services |
 
-### Screenshot — General Tab
+### General Tab
 
 <img width="900" height="400" alt="image" src="https://github.com/user-attachments/assets/3f92237c-aa19-4e69-946b-2998e7f88f0e" />
 
@@ -99,7 +99,7 @@ SigninLogs
 
 **Logic breakdown:**
 
-. Component - Purpose 
+Component - Purpose 
 
 | `ResultType == 0` | Successful logins only — impossible travel is only meaningful if the attacker got in |
 | `serialize` | Locks row order so `prev()` reliably references the previous login per user |
@@ -111,15 +111,14 @@ SigninLogs
 ---
 ## Simulating the Attack
 
- Step | Action 
+ Step - Action 
 
-.  Logged into test account from home network — established clean baseline login |
-.  Connected Surfshark VPN (WireGuard) to a US exit node |
-.  Logged into the same account again through the VPN |
-.  11 minutes between the two logins — impossible travel window triggered |
+.  Logged into test account from home network — established clean baseline login 
+.  Connected Surfshark VPN (WireGuard) to a US exit node 
+.  Logged into the same account again through the VPN 
+.  11 minutes between the two logins — impossible travel window triggered 
 
-### Screenshot — VPN Connected
-
+### VPN Connected
 
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/1404d238-c66b-4e21-b24c-e8c77e6dd09e" />
 
@@ -155,7 +154,7 @@ SigninLogs
           IPAddress, Location, AuthenticationDetails, OperationName
 | order by TimeGenerated desc
 ```
-<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/2332c72d-2ed8-4b36-91d0-ff879e71f55d" />
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/2332c72d-2ed8-4b36-91d0-ff879e71f55d" />
 
 *All successful logins for the affected account — home network IP and both suspicious VPN IPs visible*
 
@@ -170,7 +169,7 @@ SigninLogs
 | order by TimeGenerated desc
 ```
 
-<img width="1000" height="800" alt="image" src="https://github.com/user-attachments/assets/4145e300-57d7-4aa7-958a-eeda1d8dcace" />
+<img width="800" height="700" alt="image" src="https://github.com/user-attachments/assets/4145e300-57d7-4aa7-958a-eeda1d8dcace" />
 
 *All apps accessed by both suspicious IPs — M365 Security portal access at 11:38 AM clearly visible*
 
