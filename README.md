@@ -246,12 +246,14 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 | Action | Detail |
 
-| Password reset | Full credential reset — previous password invalidated immediately |
-| MFA reset | All methods cleared, fresh re-enrollment required — removes any attacker-registered authenticator app |
-| Conditional Access | MFA enforced as baseline requirement for all cloud app sign-ins |
-| Tenant-wide IP block | Both IPs permanently blocked across all users |
-| Account restored | Re-enabled after reset — user notified and briefed |
-| Active monitoring | Account monitored for 24 hours post-recovery |
+| Password reset | Full credential reset — previous password invalidated immediately 
+| MFA reset | All methods cleared, fresh re-enrollment required — removes any attacker-registered authenticator app 
+| Conditional Access | MFA enforced as baseline requirement for all cloud app sign-ins 
+| Tenant-wide IP block | Both IPs permanently blocked across all users 
+| Account restored | Re-enabled after reset — user notified and briefed 
+| Active monitoring | Account monitored for 24 hours post-recovery 
+
+<img width="1000" height="530" alt="image" src="https://github.com/user-attachments/assets/2c090b14-ed91-40ff-9eb7-a5f39d9b8375" />
 
 ---
 
@@ -259,18 +261,18 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 | Tactic | Technique | ID | Observed |
 
-| Initial Access | Valid Accounts — Cloud Accounts | T1078.004 | Attacker used stolen valid credentials to authenticate |
-| Defense Evasion | Valid Accounts | T1078 | Commercial VPN and /24 IP rotation to evade detection |
-| Discovery | Cloud Service Discovery | T1526 | M365 Security portal access — active environment recon |
-| Persistence | External Remote Services | T1133 | Returned at 1:30 PM after containment — persistent access attempt |
+| Initial Access | Valid Accounts — Cloud Accounts | T1078.004 | Attacker used stolen valid credentials to authenticate 
+| Defense Evasion | Valid Accounts | T1078 | Commercial VPN and /24 IP rotation to evade detection 
+| Discovery | Cloud Service Discovery | T1526 | M365 Security portal access — active environment recon 
+| Persistence | External Remote Services | T1133 | Returned at 1:30 PM after containment — persistent access attempt 
 
 ---
 
 ## Incident Closure
 
 | Classification | **True Positive** |
-| Root cause | External credential compromise |
-| Scope | Single account — no lateral movement, no exfiltration |
+| Root cause | External credential compromise 
+| Scope | Single account — no lateral movement, no exfiltration 
 |  Summary | Stolen credentials used to authenticate from two VPN IPs in the same /24 subnet. Attacker accessed MyApps, Azure Portal, and M365 Security portal. Returned after initial containment. Full credential reset, MFA re-enrollment, tenant-wide IP block applied. Account restored under monitoring. |
 
 ---
