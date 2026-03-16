@@ -176,8 +176,6 @@ SigninLogs
 
 ### Attack Timeline
 
-| Time | App | IP | Location | Significance |
-
 . 11:24 AM - My Signins - [Home IP — Masked] - Home - Legitimate login — clean residential IP 
 . 11:35 AM - My Apps - 145.223.7.19 - US - First VPN login — 11 mins after home login 
 . 11:38 AM - M365 Security & Compliance - 145.223.7.19 - US - Security portal — **reconnaissance behavior** |
