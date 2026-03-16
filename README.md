@@ -212,7 +212,6 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 
 ---
 
-### Containment & Remediation
 ### Containment
 
 | Action | Tool | Purpose |
@@ -223,8 +222,7 @@ Audit logs reviewed for the full incident window. No new accounts created, no fo
 | Blocked both IPs tenant-wide | Conditional Access — Named Locations | Prevents reuse against any other account in the tenant |
 | Assigned incident to self | Defender XDR | Incident ownership and audit trail |
 
-
-<img width="885" height="398" alt="image" src="https://github.com/user-attachments/assets/7daa3dda-ae61-4cc3-b131-dc9e1007edd3" />
+<img width="558" height="248" alt="image" src="https://github.com/user-attachments/assets/5bd2ff29-de0e-417b-b2d2-983fcd50ed34" />
 
 ---
 
