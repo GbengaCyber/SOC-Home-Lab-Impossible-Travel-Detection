@@ -149,7 +149,7 @@ SigninLogs
 
 ```kql
 SigninLogs
-| where UserPrincipalName == "[REDACTED]@[REDACTED-TENANT].onmicrosoft.com"
+| where UserPrincipalName == "gbXXXX@onmicrosoft.com"
 | where ResultType == 0
 | project TimeGenerated, UserPrincipalName, AppDisplayName,
           IPAddress, Location, AuthenticationDetails, OperationName
@@ -163,8 +163,8 @@ SigninLogs
 
 ```kql
 SigninLogs
-| where UserPrincipalName == "[REDACTED]@[REDACTED-TENANT].onmicrosoft.com"
-| where IPAddress in ("XXX.XXX.X.XX", "XXX.XXX.X.XX")
+| where UserPrincipalName == "gbXXXX@onmicrosoft.com"
+| where IPAddress in ("145.223.7.29", "145.223.7.19")
 | where ResultType == 0
 | project TimeGenerated, AppDisplayName, IPAddress, Location
 | order by TimeGenerated desc
